@@ -1,0 +1,16 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the carousels of the site/application.
+// -----------------------------------------------------------------------------
+
+.carousel{
+	@include breakpoint(mobileonly){ 
+			.carousel-control-prev {
+			    justify-content: flex-start;
+			    left: 5px;
+			}
+			.carousel-control-next {
+			    justify-content: flex-end;
+			    right: 5px;
+			}
+	}
+}	

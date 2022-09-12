@@ -1,0 +1,439 @@
+// Configuration and helpers
+@import
+  '../abstracts/variables',
+  '../abstracts/functions',
+  '../abstracts/mixins';
+
+// Layout-related sections
+@import
+  '../layout/page';
+
+
+#contacto,
+.sucModals,
+#formsHero,
+#formCliente,
+#graciasMensaje,
+#cotizadorModal,
+#presuModal{
+
+	&.show{
+		display: flex !important;
+		align-items: center;
+	}
+
+  .modal-content{
+    padding: 40px 48px 30px 48px;
+  }
+
+  .modal-dialog{
+    width: 580px;
+    max-width: none;
+  }
+
+  .modal-header{
+    border-bottom: none;
+    padding: 0 0 20px 0;
+    .title{
+      font-size: 24px;
+      line-height: 30px;
+      margin-bottom: 0;
+      color: $black;
+	  
+	  @include breakpoint(tablet){
+		font-size: 20px;
+	  }
+    }
+    .btn-close{
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .modal-body{
+    padding: 0px;
+    .description{
+      font-size: 18px;
+      line-height: 27px;
+      font-weight: 300;
+      color: $black;
+      margin-bottom: 30px;
+    }
+	
+	.hiddenValues{
+		display:none;
+	}
+	
+		small{
+			font-weight:300
+		}		
+	
+    form{
+      input, textarea{
+        border: 1px solid #8f8f8f;
+        border-radius: 5px;
+        padding: 10px 12px;
+        &::placeholder{
+          font-weight: 300;
+          color: #8f8f8f;
+        }
+        &.error{
+          border: 1px solid $red;
+        }
+      }
+      label{
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 500;
+        color: #353535;
+      }
+      .box-input{
+        padding-bottom: 30px;
+        justify-content: space-between;
+        .col-md-6{
+          width: 49%;
+        }
+		
+		span{
+			font-weight: 300;
+			font-size: .875em;		
+		}		
+		
+      }
+      .error-message{
+        font-size: 13px;
+        line-height: 19.5px;
+        font-weight: 300;   
+        color: $red;
+      }
+    }
+  }
+
+  .modal-footer{
+      padding: 0;
+      border: none;
+      .btn-save{
+        background: rgba(0, 124, 143, 0.4);
+        border-radius: 5px;
+        color: $white;
+        font-size: 18px;
+        line-height: 27px;
+        padding: 10px 32px;
+      }
+  }
+
+  .form-success.modal-content{
+
+    text-align: center;
+
+    .modal-body{
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 0 120px 0;
+      height: auto;
+      max-width: 396px;
+      margin: 0 auto;
+      text-align: center;
+	  
+    }
+
+    .form-success-icon{
+      width: 75px;
+      height: 75px;
+      margin-bottom: 30px;
+    }    
+    .title{
+      font-size: 24px;
+      line-height: 30px;
+      font-weight: 500;
+    }
+    .description{
+      font-size: 18px;
+      line-height: 27px;
+      font-weight: 300;
+    }
+    .sent-another-message{
+      font-size: 18px;
+      line-height: 27px;
+      font-weight: 400;
+      padding: 10px 32px;
+      border: 2px solid $black;
+      border-radius: 5px;
+      background: $white;
+    }
+
+  }
+
+}
+
+#graciasMensaje{
+
+  .modal-content{
+    padding: 20px;
+  }
+  
+  .modal-dialog{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+  }	 
+
+  .form-success.modal-content{
+
+		.modal-body{
+			padding: 0;
+			height: auto;
+		}
+	
+	}
+
+}
+
+.form-button{
+  z-index: 1;
+  position: fixed;
+  bottom: 56px;
+  right: 0;
+  background: white;
+  /* outline: none; */
+  border: none;
+  padding: 15px 27px 15px 20px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  // -webkit-transition: opacity 0.5s ease-in-out;
+  -webkit-transition: letter-spacing 0.3s ease-out, opacity 0.3s ease-out;
+  
+
+
+
+  
+  svg{
+    width: 33px;
+    height: 33px;
+  }
+  &::after{
+    content: "Contactanos";
+    vertical-align: middle;
+    
+    font-size: 18px;
+    letter-spacing: -10px;
+    opacity: 0;
+    -webkit-transition: letter-spacing 0.3s ease-out, opacity 0.3s ease-out;
+    -moz-transition: letter-spacing 0.3s ease-out, opacity 0.3s ease-out;
+    -o-transition: letter-spacing 0.3s ease-out, opacity 0.3s ease-out;
+    -ms-transition: letter-spacing 0.3s ease-out, opacity 0.3s ease-out;
+    transition: letter-spacing 0.3s ease-out, opacity 0.3s ease-out;
+  }
+  &:hover::after{
+    
+    letter-spacing: normal;
+    margin: 0 11px 0 28px;
+    opacity: 1;
+    // -webkit-transition: opacity 0.5s ease-in-out;
+    // -webkit-transition: letter-spacing 0.3s ease-out, opacity 0.3s ease-out;
+  }
+}  
+
+@include breakpoint(tablet){
+
+  #contacto,
+  .sucModals,
+  #formsHero,
+  #formCliente,
+  #graciasMensaje,
+  #cotizadorModal,
+  #presuModal{
+
+    .modal-content{
+      padding: 40px 20px 30px 20px;
+    }
+
+    .modal-dialog{
+      width: auto;
+      max-width: none;
+      margin: 20px 10px;
+    }
+
+    .modal-header{
+      padding: 0 0 10px 0;
+      .btn-close{
+         margin-top: -55px;
+      }
+    }
+
+    .modal-body{
+      .description{
+        font-size: 15px;
+        line-height: 22.5px;
+        margin-bottom: 30px;	
+		
+		@include breakpoint(tablet){
+			margin-bottom: 13px;	
+		}
+      }
+	  
+		small{
+			font-weight:300
+		}	
+
+
+	  
+      form{
+        .box-input{
+          padding-bottom: 0px;
+		  
+			span{
+				font-weight: 300;
+				font-size: .875em;		
+			}		  
+		  
+          .col-12{
+            width: 100%;
+            padding-bottom: 20px;
+            display: flex;
+            flex-flow: column;
+          }
+        }
+		
+      }
+    }
+
+    .modal-footer{
+        .btn-save{
+          margin: 20px auto 0 auto;
+        }
+    }
+
+    .form-success.modal-content{  
+      .modal-header{
+        padding: 0 10px 0 0;
+        .btn-close{
+           margin-top: -20px;
+        }
+      }
+      .modal-body{
+        padding: 30px 0 70px 0;
+      }
+    }
+  }
+  
+  #presuModal{
+  
+  
+	.modal-content{
+	
+		> div{
+			margin-top: 0;
+		}
+	
+		.modal-header{
+		
+			.btn-close{
+				width: 15px;
+				height: 15px;
+				padding: 0;
+				margin: 0;	
+			}
+		
+		}
+		
+		&.form-success.modal-content{
+		
+			.modal-body{
+				padding: 30px 0 0px 0;
+				display: block;
+				
+				.description{
+					margin-bottom: 40px;
+				}
+			}
+		}
+	
+	}
+  
+  }
+
+
+	#graciasMensaje{
+
+	  .modal-content{
+		padding: 40px 20px 40px 20px;
+	  }
+	  
+	  .modal-dialog{
+		display: flex;
+		align-items: center;
+		height: 100%;
+		justify-content: center;
+	  }	 
+
+	  .form-success.modal-content{
+
+			.modal-body{
+				padding: 0;
+				height: auto;
+			}
+		
+		}
+
+	}  
+
+  .form-button{
+      height: 47px;
+      width: 57px;
+      top: 510px; 
+      padding: 10px 15px;
+      svg{
+        width: 27px;
+        height: 27px;
+    }
+  }  
+
+}
+
+
+body.page-template-planesAhorro{
+
+	.form-button{
+		bottom: unset;
+		top: 515px;
+	} 
+
+	@include breakpoint(tablet){
+
+	  .form-button{
+		bottom: unset;
+		top: 497px;
+	  } 
+	
+	}
+
+}
+
+body.page-template-planesAhorro.admin-bar{
+
+	.form-button{
+		bottom: unset;
+		top: 545px;
+	} 
+
+	@include breakpoint(tablet){
+
+	  .form-button{
+		bottom: unset;
+		top: 543px;
+	  } 
+	
+	}
+
+}
+
+
+
+
+.elementor-14 .elementor-element.elementor-element-771e3840 .elementor-heading-title {
+    font-family: "Kanin", Helvetica, sans-serif !important;
+}

@@ -1,0 +1,106 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to 404 page.
+// -----------------------------------------------------------------------------
+@charset "UTF-8";
+
+// Configuration and helpers
+@import
+  '../abstracts/variables',
+  '../abstracts/functions',
+  '../abstracts/mixins';
+
+// Base
+@import
+  '../base/base',
+  '../base/fonts',
+  '../base/typography',
+  '../base/helpers';
+
+// Layout-related sections
+@import
+  '../layout/header',
+  '../layout/footer',
+  '../layout/page';
+
+// Global styles
+@import 
+  './global-css.scss';
+
+.page-404 {
+  height: 100vh;
+  width: 100%;
+  font-size: 18px;
+  line-height: 27px;
+
+  @include breakpoint(tablet) {
+    font-size: 15px;
+    line-height: 22.5px;
+    text-align: center;
+    width: 100vw;
+    margin: 0;
+  }
+
+  .sectionWidth {
+    margin-top: 0;
+  }
+    
+  .content-404 {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+    @include breakpoint(tablet) {
+      flex-direction: column-reverse;
+      justify-content: center;
+    }
+    
+    &>div {
+      flex: 1;
+    }
+
+    .info-404 {
+
+      @include breakpoint(tablet) {
+        flex: 0;
+      }
+
+      h1, p {
+        margin-bottom: 32px;
+      }
+
+      .menu-404 {
+  
+        ul {
+          list-style-type: none;
+          padding-inline-start: 0;
+          margin-bottom: 0;
+  
+          li {
+            margin-bottom: 12px;
+  
+            a {
+              color: $light-blue;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+
+    .image-404 {
+      text-align: center;
+
+      @include breakpoint(tablet) {
+        margin-bottom: 27px;
+        flex: 0;
+      }
+
+      img {
+        @include breakpoint(tablet) {
+          max-width: 100%;
+          width: 222px;
+        }
+      }
+    }
+  }
+}

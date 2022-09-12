@@ -1,0 +1,54 @@
+{
+    "name": "build-tools-boilerplate",
+    "version": "2.0.0",
+    "description": "Simple recipes for building and compiling with the CLI.",
+    "author": {
+        "name": "Your Name",
+        "url": "https://your-website.com"
+    },
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/cferdinandi/build-tools-boilerplate"
+    },
+    "scripts": {
+        "clean": "recursive-delete 'dist'",
+        "js": "rollup --config config/npm/rollup.config.js",
+        "css": "node config/npm/sass.js",
+        "svg": "svgo -f src/svg dist/svg -r --disable=removeViewBox,removeTitle",
+        "svg-sprite": "svg-sprite -s --symbol-dest assets/sprites --symbol-sprite icons.svg --symbol-example true --symbol-example-dest icons-example.html assets/images/layouts/**/*.svg",
+        "img": "imagemin src/img/* --out-dir=dist/img --plugin=pngquant --plugin=mozjpeg --plugin=pngcrush --plugin=zopfli",
+        "copy": "recursive-copy 'src/copy' 'dist'",
+        "build-dirty": "npm-run-all -p js css svg img copy",
+        "build": "npm-run-all -s clean build-dirty",
+        "watch-css": "chokidar \"./assets/scss/**/*.scss\" -c \"npm run css\"",
+        "watch-js": "chokidar \"./assets/js/**/!(*cjs.js|*cjs.min.js)\" -c \"npm run js\"",
+        "watch-svg": "chokidar './src/**/*.svg' -c 'npm run svg'",
+        "watch-img": "chokidar './src/img/**/*.*' -c 'npm run img'",
+        "watch-copy": "chokidar './src/copy/**/*.*' -c 'npm run copy'",
+        "watch": "npm-run-all -p build watch-css watch-js watch-svg watch-img watch-copy",
+        "server-start": "browser-sync start --files 'dist' --server 'dist'",
+        "server": "npm-run-all -p watch server-start",
+        "env": "env"
+    },
+    "devDependencies": {
+        "browser-sync": "^2.26.14",
+        "chokidar": "^3.5.2",
+        "chokidar-cli": "^3.0.0",
+        "imagemin-cli": "^6.0.0",
+        "imagemin-mozjpeg": "^8.0.0",
+        "imagemin-pngcrush": "^6.0.0",
+        "imagemin-pngquant": "^8.0.0",
+        "imagemin-zopfli": "^6.0.0",
+        "npm-run-all": "^4.1.5",
+        "recursive-fs": "^2.1.0",
+        "rollup": "^2.56.3",
+        "rollup-plugin-terser": "^7.0.2",
+        "sass": "^1.26.5",
+        "svg-sprite": "^1.5.0",
+        "svgo": "^1.3.2"
+    },
+    "dependencies": {
+        "web-vitals": "^2.0.1"
+    }
+}

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resumen del presupuesto</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --color-gray-1: #EFEFEF;
+      --color-gray-3: #8F8F8F;
+      --color-black: #0E0E0E;
+      --color-white: #ffffff;
+      --color-celeste-light: #00A9C3;
+      --layout-width: 600px
+    }
+    body {
+      font-family: "Kanit", Helvetica, sans-serif;
+      font-size: 14px;
+      line-height: 1.5em;
+      font-weight: 300;
+      background-color: var(--color-gray-1);
+    }
+    h1, h2, h3, p {
+      margin: 0;
+    }
+    h1, h2 {
+      font-weight: 500;
+    }
+    h1 {
+      font-size: 18px;
+      line-height: 1.25em;
+    }
+    p {
+      font-size: 12px;
+      line-height: 1.5em;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    header .header-date {
+      font-size: 9px;
+      line-height: 13px;
+    }
+    main {
+      padding: 32px;
+      width: var(--layout-width);
+      margin: 0 auto;
+      background-color: var(--color-white);
+    }
+    footer {
+      padding: 27px 36px;
+      background-color: var(--color-black);
+      color: var(--color-white);
+      width: var(--layout-width);
+      margin: 0 auto;
+    }
+    .car-info {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px 24px;
+      margin-bottom: 24px;
+      border: 1px solid #EFEFEF;
+      border-radius: 10px;
+      box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.16);
+    }
+    .car-info .col-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .car-info .col-left .car-details h2 {
+      margin-bottom: 8px;
+    }
+    .car-info .col-left .car-details p {
+      font-weight: 400;
+    }
+    .car-info .col-right {
+      width: 250px;
+    }
+    .car-info .col-right img {
+      width: 100%;
+      max-width: 100%;
+      height: 154px;
+      border-radius: 5px;
+    }
+    .presu-details .presu-details-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--color-gray-1);
+    }
+    .presu-details .presu-details-row .col-left, .presu-details .presu-details-row .col-right {
+      display: flex;
+      flex-direction: column;
+    }
+    .presu-details .presu-details-row .col-right {
+      align-items: flex-end;
+    }
+    .presu-details .presu-details-row .col-left .presu-item-name {
+      font-size: 14px;
+      line-height: 21px;
+      margin: 12px 0;
+    }
+    .presu-details .presu-details-row .col-right .presu-item-value {
+      font-size: 14px;
+      line-height: 21px;
+      font-weight: 500;
+      margin: 12px 0;
+    }
+    .presu-details .presu-details-row .presu-item-desc {
+      font-size: 10px;
+      line-height: 15px;
+      color:  var(--color-gray-3);
+      margin: 4px 0;
+    }
+    .presu-details .presu-details-row .presu-item-desc:last-child {
+      margin-bottom: 12px;
+    }
+    .presu-details .presu-details-row:last-child {
+      border-bottom: 0;
+      margin-bottom: 24px;
+    }
+    .presu-ammount {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--color-gray-1);
+      padding: 16px 24px;
+      margin-bottom: 16px;
+    }
+    .presu-ammount .presu-ammount-text {
+      font-size: 16px;
+      line-height: 24px;
+    }
+    .presu-ammount .presu-ammount-price {
+      font-size: 24px;
+      line-height: 30px;
+      font-weight: 500;
+      color: var(--color-celeste-light);
+    }
+    .presu-terms {
+      display: flex;
+      margin-bottom: 80px;
+    }
+    .presu-terms .terms-icon {
+      margin-right: 10px;
+    }
+    .presu-terms .presu-terms-text {
+      font-size: 8px;
+      line-height: 12px;
+    }
+    .presu-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .presu-footer .footer-contact {
+      display: flex;
+    }
+    .presu-footer .footer-contact .footer-contact-col {
+      font-size: 10px;
+      line-height: 15px;
+      margin-left: 28px;
+    }
+    .presu-footer .footer-contact .footer-contact-col img {
+      margin-right: 8px;
+    }
+  </style>
+
+</head>
+<body>
+  <main>
+    <header>
+      <h1 class="header-title">Resumen del presupuesto</h1>
+      <div class="header-date"><b>Fecha: </b><span>11/01/2022</span></div>
+    </header>
+    <section class="car-info">
+      <div class="col-left">
+        <div class="car-details">
+          <h2>Fiat Mobi</h2>
+          <p>2.3 TDI Iconic | 0km  | Nafta </p>
+        </div>
+        <div class="customer-details">
+          <p><b>Cliente:</b></p>
+          <p>Mario Perez</p>
+          <p>marioperez@gmail.com</p>
+          <p>3511234567</p>
+        </div>
+      </div>
+      <div class="col-right">
+        <img src="../../assets/images/foto-resumen-presupuesto.jpg" alt="Foto del vehículo" />
+      </div>
+    </section>
+    <section class="presu-details">
+      <div class="presu-details-row">
+        <div class="col-left">
+          <div class="presu-item-name">Precio del vehículo en pesos</div>
+        </div>
+        <div class="col-right">
+          <div class="presu-item-value">$  3.499.600</div>
+        </div>
+      </div>
+      <div class="presu-details-row">
+        <div class="col-left">
+          <div class="presu-item-name">Gastos de entrega</div>
+        </div>
+        <div class="col-right">
+          <div class="presu-item-value">$ 479.000</div>
+        </div>
+      </div>
+      <div class="presu-details-row">
+        <div class="col-left">
+          <div class="presu-item-name">Entrega de usados</div>
+          <div class="presu-item-desc">Fiat Cronos 1.8 precisión AT</div>
+        </div>
+        <div class="col-right">
+          <div class="presu-item-value">-$ 1.400.000</div>
+        </div>
+      </div>
+      <div class="presu-details-row">
+        <div class="col-left">
+          <div class="presu-item-name">Capital a financiar</div>
+          <div class="presu-item-desc">Cuota mensual promedio</div>
+          <div class="presu-item-desc">Meses del prestamo</div>
+          <div class="presu-item-desc">TNA / CFT</div>
+        </div>
+        <div class="col-right">
+          <div class="presu-item-value">-$ 1.090.000</div>
+          <div class="presu-item-desc">$15.400</div>
+          <div class="presu-item-desc">12 meses</div>
+          <div class="presu-item-desc">%12.5 / %16.35</div>
+        </div>
+      </div>
+    </section>
+    <section class="presu-ammount">
+      <div class="presu-ammount-text">Saldo a cancelar</div>
+      <div class="presu-ammount-price">$ 2.578.600</div>
+    </section>
+    <section class="presu-terms">
+      <div class="terms-icon">
+        <img src="../../assets/images/layouts/icons/info.svg" alt="info" />
+      </div>
+      <div class="presu-terms-text">Los valores de tasación son meramente informativos y estimativos, por lo que no constituyen una oferta y/o promesa de pago alguna.
+        Los valores de gastos de entrega son aproximados, sujeto a variaciones de leyes impositivas provinciales, aranceles y tablas del Registro del Automotor. En este valor no se contemplan los sellos de la prenda y la radicación del automotor. Sugerimos corroborar gastos con nuestro equipo comercial antes de cerrar la operación.</div>
+    </section>
+  </main>
+  <footer class="presu-footer">
+    <div class="footer-logo">
+      <img src="../../assets/images/logo/logo.svg" alt="Autocity" />
+    </div>
+    <div class="footer-contact">
+      <div class="footer-contact-col">
+        <img src="../../assets/images/layouts/icons/phone-white.svg" alt="Teléfono" />
+        <span>0810 888 4000</span>
+      </div>
+      <div class="footer-contact-col">
+        <img src="../../assets/images/layouts/icons/web-white.svg" alt="Sitio web" />
+        <span>www.autocity.com.ar</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

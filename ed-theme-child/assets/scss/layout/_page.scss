@@ -1,0 +1,82 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the defaults pages of the site/application.
+// -----------------------------------------------------------------------------
+
+
+// Common styles
+%page-title{
+}
+
+%widget-title{
+	font-size: 36px;
+	line-height: 45px;
+	font-weight: 500;
+	@include breakpoint(tablet){
+		font-size: 24px;
+	  line-height: 30px;
+	}
+}	
+
+%widget-description{
+	font-size: 18px;
+	line-height: 27px;
+	font-weight: 300;
+	@include breakpoint(tablet){
+		font-size: 15px;
+	  line-height: 22px;
+	}
+}
+
+%button-secondary-light-white-bg{
+	color: $black;
+	font-size: 18px;
+	line-height: 27px;
+	font-weight: 400;
+	text-decoration: black;			
+	border: 2px solid $black;
+	border-radius: 5px;
+	padding: 10px 32px;
+	width: max-content;
+	&:hover{
+		background-color: #efefef;
+	}	
+	&:active{
+		color: $white;
+		background-color: $black;
+	}
+	&:focus{
+		background: #cacaca;
+		border: 3px solid #0e0e0e;
+		padding: 9px 31px;
+		outline: none;
+	}
+}
+
+%button-secondary-light-black-bg{
+	color: $white;
+	font-size: 18px;
+	line-height: 27px;
+	font-weight: 400;
+	text-decoration: none;			
+	border: 2px solid $white;
+	border-radius: 5px;
+	padding: 10px 32px;
+	width: max-content;
+	&:active{
+		color: #353535;
+		background-color: #8f8f8f;
+	}
+	&:focus{
+		color: #353535;
+		background-color: #cacaca;
+		border: 3px solid $white;
+		padding: 9px 31px;
+		outline: none;
+	}
+}
+
+/* Page Styles */
+
+.page .page-title{
+	@extend %page-title;
+}

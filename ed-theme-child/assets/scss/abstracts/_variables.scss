@@ -1,0 +1,32 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+/*Variables*/
+
+/*Fonts*/
+$main-font: "Kanin", Helvetica, sans-serif;
+
+/*Colors*/
+$white: #fff;
+$black: #0E0E0E;
+$gray-5: #353535;
+$gray-4: #575757;
+$gray-3: #8F8F8F;
+$gray-2: #CACACA;
+$gray-1: #EFEFEF;
+$gray: #575757;
+$red: #ff0000;
+$light-blue: #00a9c3;
+$dark-blue: #007c8f;
+$darker-blue: #006878;
+$disabled-blue: rgba(0, 124, 143, 0.4);
+$disabled-white: rgba(0255, 255, 255, 0.3);
+$transparent-black: rgba(0,0,0,0);
+
+$primary: $dark-blue;
+
+/*Paths*/
+$assets : "/wp-content/themes/ed-theme-child/assets/";
+$icons: $assets + "images/layouts/icons/";
+$home_images: $assets + "images/layouts/home/";

@@ -1,0 +1,40 @@
+// -----------------------------------------------------------------------------
+// This file contains CSS helper classes.
+// -----------------------------------------------------------------------------
+
+// Customizing Bootstrap 4
+.offset-r-1{
+    margin-right: 8.333333%;
+}
+.offset-r-2{
+    margin-right: 16.666667%;
+}
+
+//CSS Tricks
+%add_center_vertically_without_flex{
+  position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}    
+
+%remove_center_vertically_without_flex{
+  position: relative;
+    top: 0;
+    transform: none;
+}     
+
+/*Priority:low EDIT priority low implica que lo uso en este proyecto pero no queda para un repo general*/
+%as_width_as_text{
+  width: -moz-fit-content;
+  width: fit-content;
+
+  // workaround for IE11
+  display: table;
+}
+
+%menu_items{
+  font-size: 16px;
+  color: $black;
+  font-weight: 700;
+  text-transform: uppercase;
+}

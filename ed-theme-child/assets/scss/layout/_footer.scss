@@ -1,0 +1,169 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+#footer{
+
+	margin-top:50px;
+	
+	.dynamic-footer{
+		display: flex;
+	    flex-flow: row nowrap;
+	    flex-wrap: wrap;
+	    width: 100%;
+	    justify-content: space-between;
+	    height: 270px;
+	    padding: 65px 84px;
+		border-top: 1px solid #cacaca;
+		border-bottom: 1px solid #cacaca;		
+
+	    .footer-social-media{
+	    	display: flex;
+		    flex-flow: column nowrap;
+		    height: 100%;
+	    	.social-media-box{
+	    		display: flex;
+			    flex-flow: row nowrap;
+			    justify-content: space-between;
+			    align-items: baseline;
+			    padding-top: 32px;
+	    	}
+	    }
+
+	    .footer-column{
+	    	.title{
+		    	font-size: 24px;
+		    	line-height: 30px;
+		    	font-weight: 500;
+		    	margin-bottom: 16px;
+		    }
+		    ul.links-list{
+		    	list-style: none;
+		    	padding: 0;
+		    	li{
+		    		padding-bottom: 10px;
+		    		a{
+		    			font-size: 16px;
+		    			line-height: 24px;
+		    			font-weight: 300;
+		    			text-decoration: none;
+		    			color: $black;
+		    		}
+		    	}
+		    }	
+	    }
+
+	    .footer-contact-data{
+	    	h5{
+	    		font-size: 18px;
+	    		line-height: 27px;
+	    		font-weight: 400;
+	    		i{
+	    			margin-right: 9px;
+	    			display: inline-block;
+	    		}
+	    	}
+	    	.contact-info{
+	    		font-size: 13px;
+	    		line-height: 20px;
+	    		font-weight: 300;
+	    		margin: 0 0 0 25px;
+	    	}
+	    }
+	 }  
+
+	.copyright-footer{
+		display: flex;
+	    flex-flow: row nowrap;
+	    justify-content: space-between;
+	    padding: 32px 84px;
+		
+		@include breakpoint(tablet){
+			justify-content: center;
+		}
+		
+	    p{
+	    	font-size: 18px;
+			line-height: 27px;
+			font-weight: 300;
+			margin: 0;
+			a{
+				color: $light-blue;
+				text-decoration: none;
+			}
+	    }
+	}
+
+		@include breakpoint(tablet){
+			.dynamic-footer{
+			    width: 267px;
+			    margin: 0 auto;
+			    height: auto;
+			    flex-flow: column nowrap;
+			    align-content: center;
+			    padding: 40px 0;
+			    text-align: center;
+    			.footer-social-media{
+    				padding-bottom: 40px;
+    				width: 150px;
+    				margin: 0 auto;
+	    			.social-media-box{
+	    				padding-top: 40px;
+	    			}
+	    		}
+	    		.footer-column{
+	    			ul.links-list li a{
+	    				font-size: 18px;
+	    				line-height: 27px;
+	    				font-weight: 300;
+	    			}
+	    		}
+	    		.footer-contact-data{
+	    			p.phone{
+	    				font-size: 24px;
+	    				line-height: 30px;
+	    				font-weight: 500;
+	    				i{
+		    				width: 18px;
+		    				height: 18px;
+		    				display: inline-block;
+    						margin-right: 7px;
+		    			}
+	    			}
+	    			.contact-info{
+			    		font-size: 18px;
+			    		line-height: 27px;
+			    		margin: 0;
+			    	}
+	    		}
+			}
+			.copyright-footer{
+				padding: 24px 17px;
+				text-align: center;
+				.logo-grupo-table{
+					display: none;
+				}
+				p{
+					font-size: 13px;
+					line-height: 20px;
+				}
+				span{
+					display: block;
+					line-height: 20px;
+				}
+			}
+		}   
+
+}
+
+body.home{
+
+	#footer{
+		margin-top:0;
+		
+		.dynamic-footer{
+			border-top: 0 none;
+		}	
+		
+	}
+
+}
