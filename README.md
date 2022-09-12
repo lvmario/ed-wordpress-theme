@@ -1,4 +1,4 @@
-#Introducción
+# Introducción
 
 El siguiente desarrollo consta conceptualmente de 3 partes: 
 - 2 themes (uno parent y uno child) 
@@ -16,15 +16,15 @@ Si el caso fuera el 2do, se recomienda obtener una versión actualizada de WP (h
 
 Por último, para instalar los paquetes necesarios para las herramientas de automatización y web-vitals, se debe correr desde consola, situándose en el path del child-theme, el comando “npm install“.
 
-#Secciones
+# Secciones
 
-#Indexación
-#Sitemaps
+# Indexación
+	Sitemaps
 Si bien existen muchos plugins que son capaces de generar sitemaps, a partir de la versión 5.5 Wordpress lo incorporó como una feature dentro del core (https://make.wordpress.org/core/2020/07/22/new-xml-sitemaps-functionality-in-wordpress-5-5)
 Al parecer funciona muy bien y es super customizable. Al ser una customización propia de cada sitio, se la implementa desde el child-theme. En este caso ed-theme-child/wp-sitemap-functions.php
 Documentación utiizada:
 	
-#Robots
+ Robots
 Para definir los valores robots globales en robots.txt podemos usar el action hook do_robotstxt para añadir contenido (https://docs.wpvip.com/how-tos/modify-the-robots-txt-file/) asi como el filter hook robots_txt para filtrar el output final.
 
 Por otro lado, para gestionar las directivas por template, se desarrolló modulo “robots” en parent theme.
@@ -49,10 +49,10 @@ function vg_set_robots_directives(){
 }
 
 
-#Metatags
+ Metatags
 Readme del plugin utilizado (wp-seo)-> https://github.com/alleyinteractive/wp-seo
 
-#Schema
+ Schema
 Es un módulo creado en el parent theme a través de una clase llamada Schema_Item, la cual se la puede instanciar desde cualquier ubicación enviándole un archivo de configuración. El uso recomendado, sin embargo, es centralizar los objetos schema instanciados en un archivo localizado en ed-child-theme/modules/schema/setup.php que instancie el objeto enviándole una configuración y lo adjunte a un hook determinado. Por ejemplo:
 
 //Add WebPage schema object on head, for all pages 
@@ -84,10 +84,10 @@ function vg_render_web_page_object(){
 }	
 
 
-#Estrategia de links internos
+ Estrategia de links internos
 
-#Perfomance
-	#Assets/CSS
+# Perfomance
+	Assets/CSS
 Para utilizar el módulo css-organizer (situado en parent-theme/modules/wp-customization/css-organizer), la implementación recomendada consiste en generar un archivo de configuración en child-theme/config/modules/css-organizer/config.php con el siguiente formato
 
 	return $css_assets_config = array (
@@ -109,7 +109,7 @@ Para utilizar el módulo css-organizer (situado en parent-theme/modules/wp-custo
 Donde cada elemento ('como-funciona' en este caso) sería el archivo a incluir con los diferentes parámetros que requiere wp_register_style (https://developer.wordpress.org/reference/functions/wp_register_style/.) 
 Hay dos parámetros extras, que son “condition”, el cual nos permite añadir una condición para que el archivo cargue en un determinado template (sino carga en todos) y 'register_only' que cuando está en ‘true’ nos permite registrarlo solamente de forma que funcione como una dependencia y no se inserte en ningún template a no ser que este lo añada en el parámetro ‘deps’.
 
-#Assets/JS
+ Assets/JS
 Para minificar y hacer rolling up de archivos JS, se utiliza el comando ‘npm run js’, el cual está basado en la configuración cargada en child-theme/config/npm/rollup.config.js.
 
 Para añadir los atributos defer o async a un script se debe añadir la expresión en cuestión al final del handle, ej:
@@ -120,7 +120,7 @@ wp_enqueue_script( 'bootstrap-defer' );
 La lógica que interpreta el handle y en función de este añade el parámetro dentro del script embebido se encuentra dentro de parent-theme/modules/wp-customization/assets-enqueue/helper-functions.php
 
 
-#Sprites
+ Sprites
 
 Para crear o actualizar los íconos de un sprite, se deben localizar los mismos dentro de la carpeta señalada como source dentro de la npm task ‘svg sprite’. En este caso en concreto la misma se define dentro de child-theme/package.json y tiene como source assets/images/layouts/**/*.svg (todos los archivos svg dentro de assets/images/layouts/ y sus directorios internos). El destino (--simbol-dest) en este caso es la carpeta sprites, y el archivo resultante es icons.svg, con su correspondiente html de ejemplo (icons-example.html) para chequear que se hayan generado correctamente. Estos parámetros pueden modificarse a conveniencia. Para ejecutar la tarea en sí misma se corre el comando ‘npm run svg-sprite’ parandonos con la consola sobre el child-theme, como con todos los comandos npm vinculados con la automatización.
 
@@ -140,9 +140,9 @@ image src es el fallback que apunta al ícono en png en caso de que el browser n
 Preloading/Prefetching/Preconnect
 Por el momento se añadió el preloading de las fuentes a través del hook wp_head en child-theme/functions.php
 
-#Caché
+# Caché
+	Automatización
 
-#Automatización
 En relación a las herramientas de automatización de procesos vinculados a recursos front-end, se eligió a npm como task runner.
 Por ende, dentro del package.json del child-theme aparte de setear los paquetes utilizados, se crean y configuran las tasks en sí mismas.
 En cada sección en especial se explica como usar cada una de las tareas en específico (CSS, JS, Sprites, etc.) pero a modo de explicación general, se puede decir que en el package.json del child-theme están definidas todas las tareas, que se ejecutan desde la consola parándose en el path del child-theme y que aquellas tareas que requieran un archivo de configuración extra, el mismo se encontrará en child-theme/config/npm.
@@ -157,7 +157,7 @@ Y acá más información acerca de NPM como task runner y ejemplos de diferentes
 https://www.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/
 
 
-#Web Vitals JS library
+ Web Vitals JS library
 Para añadir la librería Web Vitals se creó un modulo en el parent-theme llamado web-vitals, que consta de dos archivos:
 
 	module.php, donde se realizan los enqueues y donde se añade en el hook wp_head la llamada al segundo archivo (polyfill.php)
@@ -180,7 +180,7 @@ ed_load_modules ( array (
 ) );
 
 
-#Seguridad
+# Seguridad
 Aquellas medidas de seguridad que funcionan a través de código PHP (exceptuando aquellas que provienen de plugins) se añadieron al mu-plugin llamado security-basics.php. Si bien se puede revisar directamente desde el theme, dejo una copia más abajo:
 
 //Disable XMLRPC
